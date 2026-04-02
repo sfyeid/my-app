@@ -1,8 +1,8 @@
+const db = require('../db/db');
+
 const getAllUsers = async () => {
-  return [
-    { id: 1, name: "Danila" },
-    { id: 2, name: "Test User" }
-  ];
+  const result = await db.query('SELECT * FROM users');
+  return result.rows;
 };
 
 module.exports = { getAllUsers };

@@ -1,9 +1,13 @@
-const { Pool } = require('pg');
 
-const pool = new Pool({
-  connectionString: process.env.DB_URL
-});
+const query = async (text, params) => {
+  console.log("FAKE DB QUERY:", text);
 
-module.exports = {
-  query: (text, params) => pool.query(text, params),
+  return {
+    rows: [
+      { id: 1, name: "Danila" },
+      { id: 2, name: "Test User" }
+    ]
+  };
 };
+
+module.exports = { query };
