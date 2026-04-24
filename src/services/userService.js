@@ -1,8 +1,11 @@
 const db = require('../db/db');
 
 const getAllUsers = async () => {
-  const result = await db.query('SELECT * FROM users');
-  return result.rows;
+  return await db.getUsers();
 };
 
-module.exports = { getAllUsers };
+const createUser = async (name) => {
+  return await db.addUser(name);
+};
+
+module.exports = { getAllUsers, createUser };
